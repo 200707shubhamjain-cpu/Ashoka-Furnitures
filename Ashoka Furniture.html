@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashoka Furniture - Premium Management Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --gold-light: #f5d681;
+            --gold: #dfba5a;
+            --gold-dark: #c7a13e;
+            --bg-black: #000000;
+            --panel-dark: #0a0a0a;
+            --card-dark: #0d0d0d;
+            --border-dark: #1a1a17;
+            --text-gray: #a1a1aa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: #e5e5e5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .font-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* Header & Navigation Layout */
+        header {
+            background-color: var(--bg-black);
+            border-bottom: 1px solid var(--border-dark);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-top {
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+        }
+
+        .brand-logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .brand-text p {
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-container input {
+            width: 100%;
+            background-color: var(--card-dark);
+            border: 1px solid #27272a;
+            color: #e4e4e7;
+            padding: 10px 16px 10px 40px;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-container input:focus {
+            border-color: var(--gold);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 14px;
+            top: 12px;
+            color: #71717a;
+            width: 16px;
+            height: 16px;
+        }
+
+        .utility-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            color: #e5e5e5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .phone-link:hover {
+            color: var(--gold);
+        }
+
+        .phone-link i {
+            color: var(--gold);
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Universal Matrix Navigation bar */
+        nav {
+            background-color: #050505;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 4px 10px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: #a1a1aa;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 400;
+        }
+
+        nav button:hover, nav button.active {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Hero Editorial Banner Section */
+        .hero-banner {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border-dark);
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-tag {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .hero-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            max-width: 500px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Delivery Highlight Banner inside Store Layer */
+        .delivery-highlight {
+            background-color: #0c0c08;
+            border: 1px solid #ef4444;
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ef4444;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .delivery-highlight strong {
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Grid Framework Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .panel {
+            background-color: var(--panel-dark);
+            border: 1px solid var(--border-dark);
+            padding: 24px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-dark);
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+
+        .panel h2, .panel h3 {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+        }
+
+        /* Premium Luxury Product Cards Styling */
+        .card {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: #27272a;
+        }
+
+        .card-image-wrapper {
+            height: 200px;
+            background-color: #050505;
+            border: 1px solid #141411;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .card-details {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e5e5e5;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            background-color: #111;
+            border: 1px solid #27272a;
+            color: var(--gold);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 4px 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        /* Input Controls and Action Elements */
+        select, input, textarea {
+            background-color: #030303;
+            border: 1px solid var(--border-dark);
+            color: #fff;
+            padding: 12px;
+            font-size: 13px;
+            outline: none;
+            width: 100%;
+            margin-bottom: 14px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            border-color: var(--gold);
+        }
+
+        /* Custom style for beautiful file upload interface */
+        .file-upload-wrapper {
+            position: relative;
+            background-color: #030303;
+            border: 1px dashed var(--border-dark);
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 14px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .file-upload-wrapper:hover {
+            border-color: var(--gold);
+        }
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        .file-upload-text {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+        .file-upload-text i {
+            margin-bottom: 4px;
+            color: var(--gold);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .filter-row select, .filter-row input {
+            margin-bottom: 0;
+        }
+
+        button.action-btn {
+            background-color: #111;
+            border: 1px solid var(--border-dark);
+            color: #d4d4d8;
+            width: 100%;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button.action-btn:hover {
+            border-color: var(--gold);
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        /* Password Gate Wrapper Styling */
+        .auth-gate-box {
+            max-width: 400px;
+            margin: 60px auto;
+            background-color: var(--panel-dark);
+            border: 1px solid var(--border-dark);
+            padding: 30px;
+            text-align: center;
+        }
+        .auth-gate-box h3 {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .auth-gate-box p {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        /* Table Data Matrix Blueprint */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #050505;
+            color: var(--text-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 2px solid var(--border-dark);
+            text-align: left;
+            padding: 14px;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border-dark);
+            color: #e5e5e5;
+        }
+
+        tr:hover td {
+            background-color: #030303;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Integrated Shopping Cart Side Widget Placement */
+        .cart-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 992px) {
+            .cart-wrapper {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #050505;
+            border: 1px solid var(--border-dark);
+            padding: 14px 20px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            color: var(--gold);
+            font-weight: 600;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .remove-cart-btn {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* Analytics Scorecards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--panel-dark);
+            border: 1px solid var(--border-dark);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 11px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .stat-card h2 {
+            font-size: 28px;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Integrated Secure UPI Network Gateway Display Frame */
+        .gateway-box {
+            border: 1px solid var(--border-dark);
+            background-color: #060606;
+            padding: 24px;
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            .gateway-box { grid-template-columns: auto 1fr; }
+        }
+
+        .qr-frame {
+            background-color: #fff;
+            padding: 10px;
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .gateway-details {
+            font-size: 13px;
+        }
+
+        .gateway-details h4 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .gateway-details p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .gateway-labels {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .gateway-tag {
+            background-color: #111;
+            border: 1px solid #27272a;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-family: monospace;
+            color: #e5e5e5;
+        }
+
+        /* Contact Us Layout Grid System */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            padding: 16px;
+        }
+
+        .contact-item-detail i {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item-text h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text p {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Clean Architectural Brand Footer */
+        footer {
+            background-color: #020202;
+            border-top: 1px solid var(--border-dark);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #52525b;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+
+        /* Highlight classes for specific columns */
+        .highlight-data {
+            color: var(--gold);
+            font-weight: 500;
+        }
+        .address-col {
+            max-width: 250px;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="brand-identity" onclick="showTab('store')">
+                <img class="brand-logo-img" src="Gemini_Generated_Image_xai1bexai1bexai1.png" alt="Logo Matrix">
+                <div class="brand-text">
+                    <h1>Ashoka</h1>
+                    <p>Furniture</p>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <i data-lucide="search"></i>
+                <input id="search" placeholder="Search our premium collection..." oninput="renderProducts()">
+            </div>
+
+            <div class="utility-actions">
+                <a href="tel:7666811811" class="phone-link">
+                    <i data-lucide="phone"></i> 7666811811
+                </a>
+            </div>
+        </div>
+
+        <nav>
+            <button id="btn-store" class="active" onclick="showTab('store')">Store Showcase</button>
+            <button id="btn-contact" onclick="showTab('contact-view')">Contact Us</button>
+            <button id="btn-admin" onclick="showTab('admin')">Inventory Management</button>
+            <button id="btn-orders" onclick="showTab('orders')">Order Registry</button>
+            <button id="btn-analytics" onclick="showTab('analytics')">Business Intelligence</button>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="auth-gate" class="hidden">
+            <div class="auth-gate-box">
+                <i data-lucide="lock" style="width: 36px; height: 36px; color: var(--gold); margin-bottom: 16px;"></i>
+                <h3>Administrative Access Gate</h3>
+                <p>Please enter the secret master matrix code parameter to unlock restricted ledger files.</p>
+                <input type="password" id="gatePassword" placeholder="Enter System Password">
+                <button class="action-btn" onclick="verifyGatePassword()">Authenticate Authorization</button>
+            </div>
+        </section>
+
+        <section id="store">
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">Artisanal Craftsmanship</span>
+                    <h2 class="hero-title">Premium Quality Furniture</h2>
+                    <p class="hero-desc">Elevate Your Living with Elegance & Comfort. Explore customized interior structures designed for lifetime architectural endurance.</p>
+                </div>
+            </div>
+
+            <div class="delivery-highlight">
+                <i data-lucide="alert-circle" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 8px;"></i>
+                Logistics Fleet Status: <strong>THE DELIVERY WOULD BE CHARGED | DELIVERY WITHIN INDORE AND 60KM ABOVE</strong>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Filter Master Collection</h2>
+                </div>
+                <div class="filter-row">
+                    <select id="categoryFilter" onchange="renderProducts()">
+                        <option value="">All Structural Categories</option>
+                        <option value="Sofa">Sofa Sets</option>
+                        <option value="Bed">Beds Framework</option>
+                        <option value="Table">Dining & Tables</option>
+                        <option value="Chair">Ergonomic Office Chairs</option>
+                        <option value="Almirah">Premium Almirah</option>
+                        <option value="TV Unit">Luxury TV Units</option>
+                        <option value="Centre Table">Centre Tables</option>
+                        <option value="Dressing Table">Dressing Tables</option>
+                        <option value="Bedroom Set">Complete Bedroom Sets</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="products" class="grid"></div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Your Manifest Order Allocation</h2>
+                </div>
+                
+                <div class="cart-wrapper">
+                    <div>
+                        <div id="cart"></div>
+                    </div>
+                    
+                    <div style="background-color: #050505; padding: 20px; border: 1px solid var(--border-dark);">
+                        <h3 style="margin-bottom: 16px;">Summary Log</h3>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <span style="color: var(--text-gray); font-size: 13px;">Gross Payable Value:</span>
+                            <span style="color: var(--gold); font-weight: 700; margin-left: auto;">₹<span id="cartTotal">0</span></span>
+                        </div>
+
+                        <input id="customerName" placeholder="Consignee Customer Name" required>
+                        <input id="customerPhone" placeholder="Verified Phone Line Number" required>
+                        <textarea id="customerAddress" placeholder="Complete Delivery Address" rows="3" style="font-family: inherit;" required></textarea>
+                        
+                        <select id="payment" onchange="togglePaymentGateway(this.value)">
+                            <option value="UPI">Secure Scan & Pay UPI Network</option>
+                            <option value="Cash on Delivery">Cash on Delivery Settlement</option>
+                        </select>
+
+                        <div id="upi-gateway-frame" class="gateway-box">
+                            <div class="qr-frame">
+                                <img src="WhatsApp Image 2026-06-25 at 6.22.24 PM.jpeg" alt="Indian Bank Central QR Matrix">
+                            </div>
+                            <div class="gateway-details">
+                                <h4>Instant Digital Settlement Desk</h4>
+                                <p>Scan code with any authorized application layer (BHIM UPI, PhonePe, GPAY, Paytm) to route clearing validation to our administrative account desk.</p>
+                                <div class="gateway-labels">
+                                    <span class="gateway-tag">BHIM UPI</span>
+                                    <span class="gateway-tag">GPAY</span>
+                                    <span class="gateway-tag">PHONEPE</span>
+                                    <span class="gateway-tag">PAYTM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="action-btn" style="margin-top: 20px;" onclick="checkout()">Commit Order Placement</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-view" class="hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Contact Us</h2>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-block">
+                        <div class="contact-item-detail">
+                            <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                            <div class="contact-item-text">
+                                <h4>Phone Line</h4>
+                                <p>+91 7666811811</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item-detail">
+                            <i data-lucide="message-square" style="width: 20px; height: 20px;"></i>
+                            <div class="contact-item-text">
+                                <h4>WhatsApp Channel</h4>
+                                <p>+91 7666811811</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item-detail">
+                            <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+                            <div class="contact-item-text">
+                                <h4>Showroom Address</h4>
+                                <p>111 Swastik Nagar, Ranjeet Hanuman Road, Indore, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item-detail" style="border-color: #ef4444;">
+                            <i data-lucide="truck" style="width: 20px; height: 20px;"></i>
+                            <div class="contact-item-text">
+                                <h4>Logistics Parameters</h4>
+                                <p style="color: #ef4444;"><strong>THE DELIVERY WOULD BE CHARGED | DELIVERY WITHIN INDORE AND 60KM ABOVE</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background-color: #050505; padding: 24px; border: 1px solid var(--border-dark);">
+                        <h3 style="margin-bottom: 16px; font-size: 16px;">Drop An Inquiry</h3>
+                        <form id="contactForm" onsubmit="handleInquirySubmit(event)">
+                            <input type="text" id="formName" placeholder="Your Full Name" required>
+                            <input type="tel" id="formPhone" placeholder="Your Contact Phone Number" required>
+                            <textarea id="formAddress" placeholder="Your Residential / Delivery Address" rows="4" style="font-family: inherit;" required></textarea>
+                            <button type="submit" class="action-btn">Submit Information Form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Insert System Catalog Record</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                    <div>
+                        <input id="pname" placeholder="Item Title Name">
+                    </div>
+                    <div>
+                        <select id="pcategory">
+                            <option value="Sofa">Sofa</option>
+                            <option value="Bed">Bed</option>
+                            <option value="Table">Table</option>
+                            <option value="Chair">Chair</option>
+                            <option value="Almirah">Almirah</option>
+                            <option value="TV Unit">TV Unit</option>
+                            <option value="Centre Table">Centre Table</option>
+                            <option value="Dressing Table">Dressing Table</option>
+                            <option value="Bedroom Set">Bedroom Set</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input id="pprice" type="number" placeholder="Price Matrix Index (₹)">
+                    </div>
+                    <div>
+                        <input id="pstock" type="number" placeholder="Available Warehouse Stock">
+                    </div>
+                </div>
+                
+                <div class="file-upload-wrapper">
+                    <div class="file-upload-text">
+                        <i data-lucide="upload-cloud" style="width:24px; height:24px; margin:auto; display:block;"></i>
+                        <span id="upload-label">Upload Product Image File Asset (Click or Drop File)</span>
+                    </div>
+                    <input type="file" id="pimagefile" accept="image/*" onchange="handleFileSelected(this)">
+                </div>
+
+                <button class="action-btn" style="margin-top: 10px;" onclick="addProduct()">Commit Entry To Grid</button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Warehouse Stock Ledger Master Matrix</h2>
+                </div>
+                <div style="overflow-x: auto;">
+                    <div id="inventory"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="orders" class="hidden">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Showroom Order Management & Customer Registry</h2>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Stamp</th>
+                                <th>Customer Name</th>
+                                <th>Phone Reference</th>
+                                <th>Delivery Address</th>
+                                <th>Items Ordered</th>
+                                <th>Amount Checked</th>
+                                <th>Settlement Mode</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics" class="hidden">
+            <div class="panel-header" style="margin-bottom: 24px;">
+                <h2>System Analytics Matrix Rolling Log</h2>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Active Catalog Varieties</h3>
+                    <h2 id="statProducts">0</h2>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Historical Logged Orders</h3>
+                    <h2 id="statOrders">0</h2>
+                </div>
+                <div class="stat-card">
+                    <h3>Gross Tracked Revenue Rollup</h3>
+                    <h2 id="statRevenue">₹0</h2>
+                </div>
+                <div class="stat-card">
+                    <h3>Aggregated Warehouse Units</h3>
+                    <h2 id="statStock">0</h2>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h4>ASHOKA FURNITURE</h4>
+        <p>© 2026 ASHOKA FURNITURE CENTRALIZED DISTRIBUTION SYSTEM HUB | <strong>THE DELIVERY WOULD BE CHARGED | DELIVERY WITHIN INDORE AND 60KM ABOVE</strong></p>
+    </footer>
+
+    <script>
+        let products = JSON.parse(localStorage.getItem('af_products')) || [
+            {id: 1, name: 'Luxury Tufted Sofa Set', category: 'Sofa', price: 45999, stock: 8, image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=400&auto=format&fit=crop'},
+            {id: 2, name: 'Royal King Size Bed', category: 'Bed', price: 35999, stock: 5, image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=400&auto=format&fit=crop'},
+            {id: 3, name: 'Premium Teak Dining Table', category: 'Table', price: 25999, stock: 12, image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80&w=400&auto=format&fit=crop'},
+            {id: 4, name: 'Ergonomic High-Back Office Chair', category: 'Chair', price: 8999, stock: 15, image: 'https://images.unsplash.com/photo-1505797149-43b0069ec26b?q=80&w=400&auto=format&fit=crop'},
+            {id: 5, name: 'Solid Wood 3-Door Almirah', category: 'Almirah', price: 42000, stock: 4, image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=400&auto=format&fit=crop'},
+            {id: 6, name: 'Floating Entertainment TV Unit', category: 'TV Unit', price: 18500, stock: 7, image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=400&auto=format&fit=crop'},
+            {id: 7, name: 'Walnut Finish Centre Table', category: 'Centre Table', price: 12999, stock: 10, image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=400&auto=format&fit=crop'},
+            {id: 8, name: 'Elegant Backlit Dressing Table', category: 'Dressing Table', price: 16500, stock: 6, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400&auto=format&fit=crop'},
+            {id: 9, name: 'Imperial Master Bedroom Set', category: 'Bedroom Set', price: 115000, stock: 2, image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=400&auto=format&fit=crop'}
+        ];
+        
+        let orders = JSON.parse(localStorage.getItem('af_orders')) || [
+            {
+                date: "25/06/2026, 11:30:15 AM",
+                customer: "Rajesh Kumar",
+                phone: "9876543210",
+                address: "Flat 402, Golden Crest Apartments, Link Road, Mumbai",
+                items: "Luxury Tufted Sofa Set (1)",
+                amount: 45999,
+                payment: "UPI"
+            },
+            {
+                date: "26/06/2026, 10:15:42 AM",
+                customer: "Aanya Sharma",
+                phone: "8765432109",
+                address: "Villa No. 12, Green Meadows Colony, Sukhlia, Indore",
+                items: "Walnut Finish Centre Table (1), Royal King Size Bed (1)",
+                amount: 48998,
+                payment: "Cash on Delivery"
+            }
+        ];
+
+        let cart = [];
+        let temporaryUploadedImageBase64 = "";
+        
+        // Security Gate Configurations
+        const MASTER_KEY = "craft";
+        let isAuthorized = false;
+        let pendingTargetTab = "";
+
+        function save() {
+            localStorage.setItem('af_products', JSON.stringify(products));
+            localStorage.setItem('af_orders', JSON.stringify(orders));
+        }
+
+        function showTab(id) {
+            // Check password protection for admin sections
+            if ((id === 'admin' || id === 'orders' || id === 'analytics') && !isAuthorized) {
+                pendingTargetTab = id;
+                document.querySelectorAll('section').forEach(x => x.classList.add('hidden'));
+                document.getElementById('auth-gate').classList.remove('hidden');
+                document.getElementById('gatePassword').value = "";
+                document.getElementById('gatePassword').focus();
+                
+                document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+                const navBtnMap = {'admin': 'btn-admin', 'orders': 'btn-orders', 'analytics': 'btn-analytics'};
+                document.getElementById(navBtnMap[id]).classList.add('active');
+                return;
+            }
+
+            document.querySelectorAll('section').forEach(x => x.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(id).classList.remove('hidden');
+            
+            let btnId = 'btn-' + id;
+            if (id === 'contact-view') btnId = 'btn-contact';
+            const targetBtn = document.getElementById(btnId);
+            if (targetBtn) targetBtn.classList.add('active');
+            
+            renderAll();
+        }
+
+        function verifyGatePassword() {
+            let inputPass = document.getElementById('gatePassword').value;
+            if (inputPass === MASTER_KEY) {
+                isAuthorized = true;
+                showTab(pendingTargetTab);
+            } else {
+                alert('Invalid Authentication Code. Protection layer remains active.');
+                document.getElementById('gatePassword').value = "";
+            }
+        }
+
+        function renderProducts() {
+            let q = search.value.toLowerCase();
+            let c = categoryFilter.value;
+            let productsDiv = document.getElementById('products');
+            
+            let filtered = products.filter(p => 
+                p.name.toLowerCase().includes(q) && (!c || p.category === c)
+            );
+
+            if(filtered.length === 0) {
+                productsDiv.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-gray); padding: 40px; font-size: 14px;">No matching high-end fittings found inside active cache filter.</div>`;
+                return;
+            }
+
+            productsDiv.innerHTML = filtered.map(p => `
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img src="${p.image}" alt="${p.name}">
+                    </div>
+                    <div class="card-details">
+                        <div>
+                            <span class="badge">${p.category} System</span>
+                            <h3 class="product-title">${p.name}</h3>
+                        </div>
+                        <div>
+                            <p class="price-tag">₹${p.price.toLocaleString('en-IN')}</p>
+                            <p style="font-size: 11px; color: var(--text-gray); margin-bottom: 12px;">Warehouse Load: ${p.stock} Units</p>
+                            <button class="action-btn" onclick="addToCart(${p.id})">Add To Cart Asset</button>
+                        </div>
+                    </div>
+                </div>`).join('');
+        }
+
+        function addToCart(id) {
+            let p = products.find(x => x.id === id);
+            if (!p || p.stock < 1) { 
+                alert('Item volume depleted inside warehouse allocations.'); 
+                return; 
+            }
+            cart.push({ ...p });
+            renderCart();
+        }
+
+        function renderCart() {
+            let cartDiv = document.getElementById('cart');
+            if(cart.length === 0) {
+                cartDiv.innerHTML = `<p style="color: var(--text-gray); font-size: 13px; text-align: center; padding: 20px;">Your manifest balance holds no selected items currently.</p>`;
+                document.getElementById('cartTotal').innerText = '0';
+                return;
+            }
+
+            cartDiv.innerHTML = cart.map((x, i) => `
+                <div class="cart-item">
+                    <span class="cart-item-name">${x.name}</span>
+                    <span class="cart-item-price">₹${x.price.toLocaleString('en-IN')}</span>
+                    <button class="remove-cart-btn" onclick="removeCart(${i})"><i data-lucide="trash-2" style="width:16px;height:16px;"></i></button>
+                </div>`
+            ).join('');
+            
+            let absoluteSum = cart.reduce((a, b) => a + b.price, 0);
+            document.getElementById('cartTotal').innerText = absoluteSum.toLocaleString('en-IN');
+            lucide.createIcons();
+        }
+
+        function removeCart(i) {
+            cart.splice(i, 1); 
+            renderCart();
+        }
+
+        function togglePaymentGateway(val) {
+            const upiFrame = document.getElementById('upi-gateway-frame');
+            if (val === 'UPI') {
+                upiFrame.classList.remove('hidden');
+            } else {
+                upiFrame.classList.add('hidden');
+            }
+        }
+
+        function checkout() {
+            if (!cart.length) return alert('Cart allocation map is currently vacant.');
+            
+            let name = document.getElementById('customerName').value.trim();
+            let phone = document.getElementById('customerPhone').value.trim();
+            let address = document.getElementById('customerAddress').value.trim();
+
+            if (!name || !phone || !address) {
+                return alert('Please fill out Name, Phone Number, and Delivery Address parameters to checkout.');
+            }
+
+            let amount = cart.reduce((a, b) => a + b.price, 0);
+            
+            let summaryMap = {};
+            cart.forEach(item => {
+                summaryMap[item.name] = (summaryMap[item.name] || 0) + 1;
+                let p = products.find(x => x.id === item.id);
+                if (p) p.stock = Math.max(0, p.stock - 1);
+            });
+            let itemsString = Object.keys(summaryMap).map(k => `${k} (${summaryMap[k]})`).join(', ');
+
+            orders.unshift({
+                date: new Date().toLocaleString(),
+                customer: name,
+                phone: phone,
+                address: address,
+                items: itemsString,
+                payment: document.getElementById('payment').value,
+                amount: amount
+            });
+            
+            save();
+            cart = [];
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerAddress').value = '';
+            renderAll();
+            alert('Order processed and logged successfully inside system matrix database.');
+        }
+
+        function handleFileSelected(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    temporaryUploadedImageBase64 = e.target.result;
+                    document.getElementById('upload-label').innerText = "✓ File Uploaded Successfully (" + input.files[0].name + ")";
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const address = document.getElementById('formAddress').value;
+            
+            alert(`Thank you ${name}. Your inquiry has been submitted successfully from ${address}. Our team will contact you at ${phone} shortly.`);
+            document.getElementById('contactForm').reset();
+        }
+
+        function addProduct() {
+            const nameInput = document.getElementById('pname').value;
+            const priceInput = +document.getElementById('pprice').value;
+            if(!nameInput || !priceInput) {
+                alert('Please fill out nomenclature and price elements.');
+                return;
+            }
+
+            let finalImageSrc = temporaryUploadedImageBase64 || 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=400&auto=format&fit=crop';
+
+            products.push({
+                id: Date.now(),
+                name: nameInput,
+                category: document.getElementById('pcategory').value,
+                price: priceInput,
+                stock: +document.getElementById('pstock').value || 5,
+                image: finalImageSrc
+            });
+            
+            document.getElementById('pname').value = '';
+            document.getElementById('pprice').value = '';
+            document.getElementById('pstock').value = '';
+            document.getElementById('pimagefile').value = '';
+            document.getElementById('upload-label').innerText = "Upload Product Image File Asset (Click or Drop File)";
+            temporaryUploadedImageBase64 = "";
+            
+            save(); 
+            renderAll();
+        }
+
+        function deleteProduct(id) {
+            if(confirm("Confirm removal of this framework model?")) {
+                products = products.filter(p => p.id !== id);
+                save(); 
+                renderAll();
+            }
+        }
+
+        function renderInventory() {
+            document.getElementById('inventory').innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nomenclature Title</th>
+                            <th>Category Reference</th>
+                            <th>Price Matrix</th>
+                            <th>Warehouse Stack</th>
+                            <th>Action Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${products.map(p => `<tr>
+                            <td style="font-weight: 500;">${p.name}</td>
+                            <td><span class="badge">${p.category}</span></td>
+                            <td style="color: var(--gold); font-weight: 600;">₹${p.price.toLocaleString('en-IN')}</td>
+                            <td>${p.stock} Pcs</td>
+                            <td><button class="action-btn" style="padding: 6px 12px; font-size: 10px; border-color: #ef4444; color: #ef4444;" onclick="deleteProduct(${p.id})">Purge Asset</button></td>
+                        </tr>`).join('')}
+                    </tbody>
+                </table>`;
+        }
+
+        function renderOrders() {
+            document.getElementById('ordersTable').innerHTML = orders.map(o => `
+                <tr>
+                    <td>${o.date}</td>
+                    <td class="highlight-data">${o.customer}</td>
+                    <td style="font-family: monospace;">${o.phone}</td>
+                    <td class="address-col">${o.address || 'N/A'}</td>
+                    <td style="font-size: 12px; color: var(--text-gray);">${o.items || 'N/A'}</td>
+                    <td style="color: var(--gold); font-weight: 600;">₹${o.amount.toLocaleString('en-IN')}</td>
+                    <td><span style="font-size: 11px; text-transform: uppercase; background-color: #111; padding: 4px 8px; border: 1px solid #27272a;">${o.payment}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderAnalytics() {
+            document.getElementById('statProducts').innerText = products.length;
+            document.getElementById('statOrders').innerText = orders.length;
+            document.getElementById('statRevenue').innerText = '₹' + orders.reduce((a, b) => a + b.amount, 0).toLocaleString('en-IN');
+            document.getElementById('statStock').innerText = products.reduce((a, b) => a + b.stock, 0) + ' Pcs';
+        }
+
+        function renderAll() {
+            renderProducts();
+            renderCart();
+            renderInventory();
+            renderOrders();
+            renderAnalytics();
+            lucide.createIcons();
+        }
+
+        renderAll();
+        
+        // Listen for enter key on password field
+        document.getElementById('gatePassword').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') verifyGatePassword();
+        });
+    </script>
+</body>
+</html>
